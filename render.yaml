@@ -8,7 +8,7 @@ services:
 - name: booker-web
   type: web
   env: static
-  buildCommand: yarn rw deploy render web
+  buildCommand: yarn && yarn rw deploy render web
   staticPublishPath: ./web/dist
   envVars:
   - key: NODE_VERSION
@@ -30,8 +30,8 @@ services:
   type: web
   env: node
   region: oregon
-  buildCommand: yarn install
-  startCommand: yarn && yarn rw deploy render api
+  buildCommand: yarn && yarn rw build api
+  startCommand: yarn rw deploy render api
   envVars:
   - key: NODE_VERSION
     value: 16
