@@ -10,7 +10,6 @@ services:
   env: static
   buildCommand: yarn && yarn rw deploy render web
   staticPublishPath: ./web/dist
-  region: frankfurt
   envVars:
   - key: NODE_VERSION
     value: 16
