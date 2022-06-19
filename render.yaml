@@ -10,9 +10,12 @@ services:
   env: static
   buildCommand: yarn && yarn rw deploy render web
   staticPublishPath: ./web/dist
+  region: frankfurt
   envVars:
   - key: NODE_VERSION
     value: 16
+  - key: SKIP_INSTALL_DEPS
+    value: true
   routes:
   - type: rewrite
     source: /.redwood/functions/*
@@ -29,7 +32,7 @@ services:
 - name: booker-api
   type: web
   env: node
-  region: oregon
+  region: frankfurt
   buildCommand: yarn && yarn rw build api
   startCommand: yarn rw deploy render api
   envVars:
