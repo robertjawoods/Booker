@@ -9,24 +9,7 @@ generator client {
 }
 
 model User {
-  id           String         @id @default(cuid())
-  GenresOnUser GenresOnUser[]
-}
-
-model Genre {
-  id   Int    @id @default(autoincrement())
-  name String
-
-}
-
-model GenresOnUser {
-  id      Int @id @default(autoincrement())
-  genreId Int
-
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
-
-  @@unique([genreId, userId])
+  id String @id @default(cuid())
 }
 
 model Book {
@@ -34,7 +17,6 @@ model Book {
   description   String
   title         String
   author        String
-  genre         String
   coverImageUrl String
   amazonUrl     String
   Isbn          Isbn[]
