@@ -1,6 +1,6 @@
 import { render, screen } from '@redwoodjs/testing/web'
-import { Loading, Empty, Failure, Success } from './GenresCell'
-import { standard } from './GenresCell.mock'
+import { Loading, Empty, Failure, Success } from './BooksCell'
+import { standard } from './BooksCell.mock'
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float and DateTime types.
@@ -8,7 +8,7 @@ import { standard } from './GenresCell.mock'
 //        https://redwoodjs.com/docs/testing#testing-cells
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
-describe('GenresCell', () => {
+describe('BooksCell', () => {
   it('renders Loading successfully', () => {
     expect(() => {
       render(<Loading />)
@@ -35,7 +35,7 @@ describe('GenresCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success genres={standard().genres} />)
+      render(<Success books={standard().books} />)
     }).not.toThrow()
   })
 })

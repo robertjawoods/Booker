@@ -1,4 +1,5 @@
-import { Modal,
+import {
+  Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
@@ -7,67 +8,56 @@ import { Modal,
   ModalCloseButton,
   Button,
   Text,
-  Icon
+  Image,
 } from '@chakra-ui/react'
-import { BookData } from 'src/pages/SwipePage/BookResponse';
-
-import {AiFillStar} from 'react-icons/ai'
-
-import { ReactElement } from 'react';
 
 interface InfoModalProps {
-  book: BookData;
-  isOpen: boolean;
-  onClose: () => void;
+  book: {
+    title: string
+    amazonUrl: string
+    author: string
+    description: string
+    coverImageUrl: string
+    Isbn: {
+      isbn10: string
+      isbn13: string
+    }[]
+  }
+  isOpen: boolean
+  onClose: () => void
 }
 
-const InfoModal = ({book, isOpen, onClose}: InfoModalProps) => {
-  const getStarRating = (): ReactElement => {
-    return (
-      <>
-      {
-        Array.from({length: Number(book.rating)}).map((_) => {
-          return <Icon as={AiFillStar} />
-        })
-      }
-      </>
-    )
-  }
-
+const InfoModal = ({ book, isOpen, onClose }: InfoModalProps) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={'xl'}>
-    <ModalOverlay />
-    <ModalContent>
-      <ModalHeader>{book.name}</ModalHeader>
-
-      <ModalCloseButton />
-      <ModalBody>
-        <Text>
-          <Text fontWeight={'bold'}>
-            {book.authors[0]}
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>{book.title}</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <Image src={book.coverImageUrl} w={'30%'} />
+          <Text>
+            <Text fontWeight={'bold'}>{book.author}</Text>
           </Text>
-          {book.pages} pages
-        </Text>
-        <Text>Published: {book.published_date}</Text>
-        {getStarRating()}
-
-        <Text>
-          {book.synopsis}
-        </Text>
-      </ModalBody>
-      <ModalFooter gap={"5px"}>
-        <Button onClick={onClose}>
-          Close
-        </Button>
-        <Button onClick={() => {
-          const newWindow = window.open(book.url, '_blank', 'noopener,noreferrer')
-          if (newWindow) newWindow.opener = null
-        }}>
-          View On GoodReads
-        </Button>
-      </ModalFooter>
-    </ModalContent>
-  </Modal>
+          <Text>{book.description}</Text>
+        </ModalBody>
+        <ModalFooter gap={'5px'}>
+          <Button onClick={onClose}>Close</Button>
+          <Button
+            onClick={() => {
+              const newWindow = window.open(
+                book.amazonUrl,
+                '_blank',
+                'noopener,noreferrer'
+              )
+              if (newWindow) newWindow.opener = null
+            }}
+          >
+            View On Amazon
+          </Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   )
 }
 

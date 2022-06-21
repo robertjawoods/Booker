@@ -1,4 +1,4 @@
-import { Link, routes } from "@redwoodjs/router"
+import { Link, routes } from '@redwoodjs/router'
 
 import {
   Menu,
@@ -7,26 +7,37 @@ import {
   MenuItem,
   IconButton,
   Flex,
-  Button,
-  Box
+  Box,
 } from '@chakra-ui/react'
 
-import {HiMenu} from "react-icons/hi"
+import { HiMenu } from 'react-icons/hi'
 
 type BookerLayoutProps = {
   children?: React.ReactNode
 }
 
 const BookerLayout = ({ children }: BookerLayoutProps) => {
-  return <>
+  return (
+    <>
       <header>
-        <Flex className="navContainer" justifyItems={"center"} display={"grid"} gridTemplateColumns={"1fr repeat(3, auto) 1fr"} gridColumnGap={"5px"}>
+        <Flex
+          className="navContainer"
+          justifyItems={'center'}
+          display={'grid'}
+          gridTemplateColumns={'1fr repeat(3, auto) 1fr'}
+          gridColumnGap={'5px'}
+        >
           <Box pl="1" pt="1" className="logoContainer">
             <h1 className="logo">
               <Link to={routes.home()}>Booker</Link>
             </h1>
           </Box>
-          <Flex pr="1" pt="1" justifyContent={"right"} className="menuContainer">
+          <Flex
+            pr="1"
+            pt="1"
+            justifyContent={'right'}
+            className="menuContainer"
+          >
             <Menu placement="bottom">
               <MenuButton as={IconButton} icon={<HiMenu />} />
               <MenuList>
@@ -45,8 +56,9 @@ const BookerLayout = ({ children }: BookerLayoutProps) => {
         </Flex>
       </header>
 
-    <main>{children}</main>
-  </>
+      <main>{children}</main>
+    </>
+  )
 }
 
 export default BookerLayout

@@ -19880,6 +19880,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"p-sleep@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "p-sleep@npm:1.1.0"
+  checksum: 4c99324b1acc907d99f6ecb5efbdf77d5d00d52fd56f149c80e779966e48c08ec1bf5b133c9aeea7c044c1b688f761ce13a5ee04a4c97f4b72c75fc5d3ced31d
+  languageName: node
+  linkType: hard
+
 "p-timeout@npm:^3.0.0, p-timeout@npm:^3.1.0":
   version: 3.2.0
   resolution: "p-timeout@npm:3.2.0"
@@ -21733,6 +21740,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-tinder-card@npm:^1.4.5":
+  version: 1.4.5
+  resolution: "react-tinder-card@npm:1.4.5"
+  dependencies:
+    p-sleep: ^1.1.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.0.0 || ^17.0.0
+    react-spring: ^8.0.0
+  peerDependenciesMeta:
+    react-spring:
+      optional: true
+  checksum: 9494b086c395a165df79e84d544fb37616e8b8c848cc12dba76d4dafaa19af09cbf66f9ba2fa76d79c53b8133bb488feedda7a7d1243c5c808d0acbc5ef5f087
+  languageName: node
+  linkType: hard
+
 "react@npm:17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
@@ -22436,6 +22459,7 @@ __metadata:
     react-icons: ^4.4.0
     react-lorem-component: ^0.13.0
     react-query: ^3.39.1
+    react-tinder-card: ^1.4.5
   languageName: unknown
   linkType: soft
 
